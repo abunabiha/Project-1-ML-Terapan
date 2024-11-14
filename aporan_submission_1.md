@@ -41,25 +41,20 @@ Beberapa algoritma pembelajaran mesin yang relevan untuk digunakan adalah Logist
 
       - Machine Learning Models for Predicting Bank Loan Eligibility https://ieeexplore.ieee.org/document/9803172
 
-Artikel ini mengevaluasi model machine learning untuk prediksi kelayakan pinjaman bank dengan menggunakan algoritma seperti random forest, gradient boost, dan decision tree. Dengan menggunakan dataset historis, hasil penelitian menunjukkan bahwa random forest memiliki akurasi tertinggi, yakni 95,55%, di antara model lainnya. Studi ini menunjukkan kemampuan algoritma untuk mempercepat dan meningkatkan akurasi proses persetujuan pinjaman di bank.
+        Artikel ini mengevaluasi model machine learning untuk prediksi kelayakan pinjaman bank dengan menggunakan algoritma seperti random forest, gradient boost, dan decision tree. Dengan menggunakan dataset historis, hasil penelitian menunjukkan bahwa random forest memiliki akurasi tertinggi, yakni 95,55%, di antara model lainnya. Studi ini menunjukkan kemampuan algoritma untuk mempercepat dan meningkatkan akurasi proses persetujuan pinjaman di bank.
 
 
 
 ## Business Understanding
-
-Pada bagian ini, kamu perlu menjelaskan proses klarifikasi masalah.
-
-Bagian laporan ini mencakup:
-
 ### Problem Statements
-
-Menjelaskan pernyataan masalah latar belakang:
-- Pernyataan Masalah 1
-- Pernyataan Masalah 2
-- Pernyataan Masalah n
+Perusahaan pemberi pinjaman menghadapi masalah utama dalam menentukan kelayakan peminjam, yang secara langsung berdampak pada potensi risiko keuangan akibat gagal bayar. Dalam data yang tersedia, "loan_status" menunjukkan apakah peminjam berhasil memenuhi kewajibannya atau mengalami gagal bayar. Tantangan utama yang perlu dijawab adalah:
+1. Bagaimana perusahaan dapat membedakan peminjam yang layak dan berisiko? Memahami faktor-faktor yang memengaruhi kelayakan peminjam akan membantu meminimalkan risiko gagal bayar.
+2. Bagaimana meningkatkan keakuratan prediksi kelayakan kredit menggunakan data demografis dan riwayat kredit? Dengan data ini, perusahaan diharapkan bisa mendapatkan wawasan untuk meningkatkan proses persetujuan kredit.
 
 ### Goals
+    Membangun model klasifikasi yang akurat untuk memprediksi kelayakan pinjaman.
 
+Model ini diharapkan dapat menganalisis berbagai karakteristik peminjam, seperti riwayat keuangan, profil demografis, dan faktor risiko lainnya, guna memprediksi kemungkinan gagal bayar atau keberhasilan dalam memenuhi kewajiban pinjaman. Dengan adanya prediksi yang akurat, perusahaan akan lebih mudah menentukan apakah permohonan kredit layak diterima atau sebaiknya ditolak, sehingga risiko keuangan dapat diminimalkan dan kualitas portofolio kredit terjaga. Lebih jauh, model ini juga memberikan keuntungan dalam hal efisiensi operasional, karena proses persetujuan kredit yang sebelumnya memerlukan waktu panjang kini dapat dilakukan dengan lebih cepat dan sistematis. Selain itu, model prediktif ini dapat membantu perusahaan untuk mengidentifikasi pola risiko dan memperkuat strategi mitigasi risiko di masa mendatang, sehingga menjaga kestabilan arus kas dan meningkatkan profitabilitas secara keseluruhan. Implementasi model ini tidak hanya mendukung pengambilan keputusan yang berbasis data, tetapi juga meningkatkan keadilan dalam pemberian kredit, karena keputusan dibuat berdasarkan analisis obyektif atas data peminjam.
 Menjelaskan tujuan dari pernyataan masalah:
 - Jawaban pernyataan masalah 1
 - Jawaban pernyataan masalah 2
