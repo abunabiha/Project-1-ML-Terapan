@@ -127,10 +127,6 @@ Langkah-langkah data preparation ini dilakukan untuk membersihkan, mengubah, dan
     - Accuracy: Persentase prediksi yang benar. AUC (Area Under the Curve): Mengukur kemampuan model dalam memisahkan dua kelas.
     - F1-Score: Memberikan keseimbangan antara precision dan recall.
       
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
-- Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
-- Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
 
 ## Evaluation
 Berdasarkan hasil perbandingan tiga model yang digunakan, yaitu Logistic Regression, Random Forest, dan Gradient Boosting, terlihat bahwa masing-masing model memiliki performa yang berbeda berdasarkan tiga metrik evaluasi utama: Accuracy, AUC (Area Under the Curve), dan F1 Score. Metrik-metrik ini digunakan untuk mengukur kemampuan model dalam memprediksi kelayakan pinjaman dengan akurasi dan keandalan yang tinggi sehingga dapat disimpulkan:
