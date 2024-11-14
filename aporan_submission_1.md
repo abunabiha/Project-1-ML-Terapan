@@ -39,9 +39,9 @@ Beberapa algoritma pembelajaran mesin yang relevan untuk digunakan adalah Logist
 
         Dalam studi ini, metode machine learning diterapkan untuk memprediksi kegagalan pembayaran dalam pasar peer-to-peer (P2P) di Tiongkok. Algoritma seperti random forest dan gradient boosting digunakan untuk mengidentifikasi faktor-faktor penting dalam prediksi gagal bayar. Hasilnya menunjukkan bahwa verifikasi identitas dan aset memiliki dampak signifikan dalam menurunkan risiko gagal bayar, dengan akurasi model yang mencapai lebih dari 90%.
 
-      - Machine Learning Models for Predicting Bank Loan Eligibility https://ieeexplore.ieee.org/document/9803172
+   - Machine Learning Models for Predicting Bank Loan Eligibility https://ieeexplore.ieee.org/document/9803172
 
-        Artikel ini mengevaluasi model machine learning untuk prediksi kelayakan pinjaman bank dengan menggunakan algoritma seperti random forest, gradient boost, dan decision tree. Dengan menggunakan dataset historis, hasil penelitian menunjukkan bahwa random forest memiliki akurasi tertinggi, yakni 95,55%, di antara model lainnya. Studi ini menunjukkan kemampuan algoritma untuk mempercepat dan meningkatkan akurasi proses persetujuan pinjaman di bank.
+      Artikel ini mengevaluasi model machine learning untuk prediksi kelayakan pinjaman bank dengan menggunakan algoritma seperti random forest, gradient boost, dan decision tree. Dengan menggunakan dataset historis, hasil penelitian menunjukkan bahwa random forest memiliki akurasi tertinggi, yakni 95,55%, di antara model lainnya. Studi ini menunjukkan kemampuan algoritma untuk mempercepat dan meningkatkan akurasi proses persetujuan pinjaman di bank.
 
 
 
@@ -64,48 +64,78 @@ Untuk mencapai tujuan tersebut, beberapa solusi berikut diusulkan:
 
 ## Data Understanding
 
-Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
-
-Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
-
-### Variabel-variabel pada Restaurant UCI dataset adalah sebagai berikut:
-- accepts : merupakan jenis pembayaran yang diterima pada restoran tertentu.
-- cuisine : merupakan jenis masakan yang disajikan pada restoran.
-- dst
+1. Informasi Jumlah Data
+    - Dataset ini memiliki:
+        - Jumlah Baris (Data Points): 45.000
+        - Jumlah Kolom (Fitur): 14
+2. Kondisi Data
+    - Missing Values: Tidak ada nilai yang hilang pada dataset ini. Setiap kolom memiliki data lengkap di setiap baris.
+    - Duplicate Values: tidak ditemukan duplikasi data.
+    - Outliers: Beberapa outlier teridentifikasi pada fitur seperti person_age (usia maksimum 144 tahun), person_income (pendapatan sangat tinggi), dan loan_amnt. Hal ini mengindikasikan kemungkinan adanya data ekstrem atau data yang perlu diperiksa lebih lanjut untuk analisis.
+    - Sumber Data : https://www.kaggle.com/datasets/taweilo/loan-approval-classification-data?select=loan_data.csv
+3. Uraian Fitur pada Data Berikut deskripsi lengkap dari masing-masing fitur dalam dataset:
+    - person_age: Usia peminjam dalam tahun.
+    - person_gender: Jenis kelamin peminjam.
+    - person_education: Tingkat pendidikan peminjam.
+    - person_income: Pendapatan tahunan peminjam dalam satuan mata uang lokal.
+    - person_emp_exp: Lama pengalaman kerja peminjam (dalam tahun).
+    - person_home_ownership: Status kepemilikan rumah peminjam (RENT, OWN, atau MORTGAGE).
+    - loan_amnt: Jumlah pinjaman yang diajukan oleh peminjam.
+    - loan_intent: Tujuan atau niat penggunaan pinjaman (misalnya, untuk keperluan kesehatan, pendidikan, konsumsi pribadi).
+    - loan_int_rate: Suku bunga pinjaman, yang menunjukkan biaya tahunan untuk pinjaman.
+    - loan_percent_income: Persentase jumlah pinjaman terhadap pendapatan tahunan peminjam.
+    - cb_person_cred_hist_length: Panjang riwayat kredit peminjam, yang mencerminkan usia akun kredit tertua.
+    - credit_score: Skor kredit peminjam yang menunjukkan tingkat risiko kredit mereka.
+    - previous_loan_defaults_on_file: Riwayat gagal bayar sebelumnya (Yes untuk pernah gagal bayar, No jika tidak).
+    - loan_status: Status akhir pinjaman (1 menandakan keberhasilan pembayaran, 0 menandakan gagal bayar).
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
-- Melakukan beberapa tahapan yang diperlukan untuk memahami data, contohnya teknik visualisasi data atau exploratory data analysis.
+- Exploratory Data Analysis (EDA) digunakan untuk memahami lebih lanjut mengenai distribusi dan korelasi antar variabel, mari kita lakukan beberapa visualisasi. Pertama, kita akan melihat distribusi usia, pendapatan, dan jumlah pinjaman, serta memeriksa korelasi antara variabel numerik Hasil Exploratory Data Analysis (EDA) Distribusi Usia:
+    1. Distribusi usia peminjam menunjukkan puncak pada sekitar usia 25 hingga 30 tahun. Namun, terdapat beberapa outlier, terutama pada usia yang lebih tinggi, yang perlu diperiksa lebih lanjut.
+    2. Distribusi Pendapatan: Pendapatan tahunan memiliki distribusi yang lebar dengan beberapa outlier signifikan pada rentang yang sangat tinggi. Ini mungkin mengindikasikan adanya peminjam dari kelompok pendapatan yang jauh di atas rata-rata.
+Distribusi Jumlah Pinjaman: Jumlah pinjaman yang diajukan sebagian besar berkisar antara 5.000 hingga 12.000, dengan puncak yang signifikan pada batas bawah sekitar 5.000.
+    3. Heatmap Korelasi: Korelasi antar variabel numerik menunjukkan beberapa poin penting:
+Variabel loan_percent_income memiliki korelasi moderat dengan loan_amnt, yang menunjukkan bahwa persentase pendapatan terhadap pinjaman naik seiring dengan meningkatnya jumlah pinjaman.
+    4. credit_score menunjukkan korelasi negatif ringan dengan loan_status, yang berarti peminjam dengan skor kredit lebih tinggi cenderung memiliki status pinjaman yang lebih baik.
 
 ## Data Preparation
-Pada bagian ini Anda menerapkan dan menyebutkan teknik data preparation yang dilakukan. Teknik yang digunakan pada notebook dan laporan harus berurutan.
+Langkah-langkah data preparation ini dilakukan untuk membersihkan, mengubah, dan mengoptimalkan data sehingga model dapat memahami pola dengan lebih baik dan menghasilkan prediksi yang lebih akurat. Langkah-langkah Data Preparation
+1. Mengidentifikasi dan Menangani Outlier
+- Proses: Kami melakukan pengecekan outlier pada kolom person_age dan person_income. Untuk dataset pinjaman, data yang memiliki usia lebih dari 100 tahun atau pendapatan tahunan lebih dari 500.000 dianggap sebagai outlier yang tidak realistis dalam konteks umum.
+- Alasan: Outlier dapat mempengaruhi hasil model karena beberapa algoritma rentan terhadap nilai ekstrem. Menghapus outlier membantu model untuk lebih fokus pada pola-pola yang relevan dan umum.
+2. Encoding Variabel Kategorikal
+- Proses: Variabel kategorikal seperti person_gender, person_education, person_home_ownership, loan_intent, dan previous_loan_defaults_on_file diubah menjadi angka menggunakan Label Encoding. Dengan metode ini, setiap kategori diberi label angka unik.
+- Alasan: Model pembelajaran mesin tidak dapat langsung bekerja dengan data dalam format kategorikal. Encoding diperlukan untuk mengonversi data tersebut menjadi numerik, sehingga model dapat memprosesnya dalam algoritma komputasi.
+3. Feature Scaling (Standarisasi)
+- Proses: Kami menggunakan StandardScaler untuk menstandarkan kolom numerik seperti person_income, loan_amnt, loan_int_rate, credit_score, loan_percent_income, dan cb_person_cred_hist_length agar setiap fitur memiliki mean 0 dan standar deviasi 1.
+- Alasan: Model sering kali bekerja lebih baik dengan data yang distandarisasi, terutama ketika data numerik memiliki skala yang sangat berbeda. Dengan standarisasi, kita memastikan semua fitur berada dalam rentang yang sama, sehingga tidak ada fitur yang mendominasi atau terlalu berpengaruh pada hasil model.
+4. Split Data (Pembagian Data)
+- Proses: Kami membagi data menjadi data training (80%) dan data testing (20%) untuk mengevaluasi kinerja model. Data training digunakan untuk melatih model, sedangkan data testing digunakan untuk pengujian akhir.
+- Alasan: Pembagian data sangat penting agar kita memiliki data terpisah untuk melatih model dan mengukur performanya pada data baru yang belum pernah dilihat model. Ini membantu kita memahami kemampuan model dalam generalisasi.
 
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan proses data preparation yang dilakukan
-- Menjelaskan alasan mengapa diperlukan tahapan data preparation tersebut.
 
 ## Modeling
-Tahapan ini membahas mengenai model machine learning yang digunakan untuk menyelesaikan permasalahan. Anda perlu menjelaskan tahapan dan parameter yang digunakan pada proses pemodelan.
-
+1. Pemilihan Algoritma: Kami menggunakan beberapa algoritma klasifikasi yang umum digunakan untuk masalah biner seperti ini, yaitu:
+   - Logistic Regression: Sebagai baseline model untuk klasifikasi biner.
+   - Random Forest Classifier: Algoritma ensemble berbasis pohon keputusan yang cocok untuk menangani fitur numerik dan kategorikal.
+   - Gradient Boosting Classifier: Algoritma boosting yang memperbaiki kesalahan prediksi dari model-model sebelumnya untuk mencapai akurasi yang lebih tinggi.
+2. Parameter yang Digunakan:
+    - Logistic Regression: Menggunakan parameter default dengan regularisasi L2, untuk menghindari overfitting.
+    - Random Forest Classifier: Menggunakan parameter default untuk jumlah pohon (n_estimators=100) serta max_depth yang akan disesuaikan pada tahap hyperparameter tuning.
+    - Gradient Boosting Classifier: Menggunakan learning_rate=0.1 dan n_estimators=100 sebagai parameter awal, dan nantinya akan dituning.
+3. Evaluasi Model: Metrik yang akan digunakan meliputi:
+    - Accuracy: Persentase prediksi yang benar. AUC (Area Under the Curve): Mengukur kemampuan model dalam memisahkan dua kelas.
+    - F1-Score: Memberikan keseimbangan antara precision dan recall.
+      
 **Rubrik/Kriteria Tambahan (Opsional)**: 
 - Menjelaskan kelebihan dan kekurangan dari setiap algoritma yang digunakan.
 - Jika menggunakan satu algoritma pada solution statement, lakukan proses improvement terhadap model dengan hyperparameter tuning. **Jelaskan proses improvement yang dilakukan**.
 - Jika menggunakan dua atau lebih algoritma pada solution statement, maka pilih model terbaik sebagai solusi. **Jelaskan mengapa memilih model tersebut sebagai model terbaik**.
 
 ## Evaluation
-Pada bagian ini anda perlu menyebutkan metrik evaluasi yang digunakan. Lalu anda perlu menjelaskan hasil proyek berdasarkan metrik evaluasi yang digunakan.
+Berdasarkan hasil perbandingan tiga model yang digunakan, yaitu Logistic Regression, Random Forest, dan Gradient Boosting, terlihat bahwa masing-masing model memiliki performa yang berbeda berdasarkan tiga metrik evaluasi utama: Accuracy, AUC (Area Under the Curve), dan F1 Score. Metrik-metrik ini digunakan untuk mengukur kemampuan model dalam memprediksi kelayakan pinjaman dengan akurasi dan keandalan yang tinggi sehingga dapat disimpulkan:
+1. Random Forest adalah model terbaik dengan akurasi tertinggi (92.39%), AUC tertinggi (0.9711), dan F1 Score tertinggi (0.8162). Model ini menunjukkan performa yang baik dalam mengidentifikasi peminjam berisiko tinggi sambil mempertahankan keseimbangan yang baik antara precision dan recall.
+2. AUC yang tinggi menunjukkan bahwa model mampu membedakan dengan baik antara peminjam yang akan membayar dan yang akan gagal bayar, yang sangat penting untuk keputusan berbasis risiko.
+3. F1 Score yang tinggi memastikan bahwa model efektif dalam menghindari kedua jenis kesalahan yang dapat membawa risiko keuangan.
 
-Sebagai contoh, Anda memiih kasus klasifikasi dan menggunakan metrik **akurasi, precision, recall, dan F1 score**. Jelaskan mengenai beberapa hal berikut:
-- Penjelasan mengenai metrik yang digunakan
-- Menjelaskan hasil proyek berdasarkan metrik evaluasi
-
-Ingatlah, metrik evaluasi yang digunakan harus sesuai dengan konteks data, problem statement, dan solusi yang diinginkan.
-
-**Rubrik/Kriteria Tambahan (Opsional)**: 
-- Menjelaskan formula metrik dan bagaimana metrik tersebut bekerja.
-
-**---Ini adalah bagian akhir laporan---**
-
-_Catatan:_
-- _Anda dapat menambahkan gambar, kode, atau tabel ke dalam laporan jika diperlukan. Temukan caranya pada contoh dokumen markdown di situs editor [Dillinger](https://dillinger.io/), [Github Guides: Mastering markdown](https://guides.github.com/features/mastering-markdown/), atau sumber lain di internet. Semangat!_
-- Jika terdapat penjelasan yang harus menyertakan code snippet, tuliskan dengan sewajarnya. Tidak perlu menuliskan keseluruhan kode project, cukup bagian yang ingin dijelaskan saja.
-
+Kesimpulan Model Random Forest dipilih sebagai model terbaik untuk permasalahan ini. Model ini memberikan keseimbangan optimal antara akurasi, kemampuan untuk membedakan kelas, dan keseimbangan antara precision dan recall. Dengan metrik evaluasi ini, perusahaan dapat lebih yakin dalam menggunakan model untuk meminimalkan risiko gagal bayar pada proses penilaian kelayakan pinjaman.
