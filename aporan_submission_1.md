@@ -1,8 +1,9 @@
-# Laporan Proyek Machine Learning - Nama Anda
+# Laporan Proyek Machine Learning - Imam Asrowardi
 
 ## Domain Proyek
 
-Pada bagian ini, kamu perlu menuliskan latar belakang yang relevan dengan proyek yang diangkat.
+Nama Proyek : : Prediksi Kelayakan Pemberian Pinjaman
+Dalam dunia keuangan, kelayakan kredit merupakan aspek krusial bagi lembaga keuangan, seperti bank dan perusahaan pemberi pinjaman, untuk meminimalkan risiko gagal bayar serta mengoptimalkan profitabilitas. Dengan meningkatnya jumlah permintaan pinjaman, perusahaan perlu membuat keputusan cepat dan akurat mengenai kelayakan kredit para pemohon. Data yang berkaitan dengan profil calon peminjam—seperti usia, pendidikan, pendapatan, pengalaman kerja, kepemilikan rumah, tujuan pinjaman, dan riwayat kredit sebelumnya—dapat memberikan wawasan penting dalam memprediksi kemungkinan gagal bayar.
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 - Jelaskan mengapa dan bagaimana masalah tersebut harus diselesaikan
