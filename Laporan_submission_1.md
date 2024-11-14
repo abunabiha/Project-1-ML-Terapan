@@ -118,15 +118,54 @@ Langkah-langkah data preparation ini dilakukan untuk membersihkan, mengubah, dan
 
 
 ## Modeling
-1. Pemilihan Algoritma: Kami menggunakan beberapa algoritma klasifikasi yang umum digunakan untuk masalah biner seperti ini, yaitu:
-   - Logistic Regression: Sebagai baseline model untuk klasifikasi biner.
-   - Random Forest Classifier: Algoritma ensemble berbasis pohon keputusan yang cocok untuk menangani fitur numerik dan kategorikal.
-   - Gradient Boosting Classifier: Algoritma boosting yang memperbaiki kesalahan prediksi dari model-model sebelumnya untuk mencapai akurasi yang lebih tinggi.
-2. Parameter yang Digunakan:
+
+Proyek ini menggunakan tiga algoritma machine learning utama untuk memprediksi kelayakan pinjaman, yaitu **Logistic Regression**, **Random Forest Classifier**, dan **Gradient Boosting Classifier**. Masing-masing algoritma memiliki cara kerja, kelebihan, kekurangan, dan kegunaan khusus. Berikut adalah penjelasan terkait ketiga algoritma tersebut.
+
+### 1. Logistic Regression
+Logistic Regression adalah algoritma yang sering digunakan sebagai model baseline dalam masalah klasifikasi biner. Algoritma ini bekerja dengan mengukur hubungan antara variabel input (fitur) dan variabel target biner, seperti "lulus/tidak lulus" atau "mampu bayar/tidak mampu bayar". Logistic Regression menghasilkan probabilitas untuk setiap kelas, yang kemudian digunakan untuk memutuskan kelas akhir dari sebuah data.
+
+Cara kerja Logistic Regression dimulai dengan membuat fungsi linear dari fitur-fitur input, yang disebut **logit**. Logit ini kemudian dimasukkan ke dalam **fungsi sigmoid**, yang mengubah nilai linear menjadi probabilitas antara 0 dan 1. Probabilitas ini menunjukkan peluang suatu data termasuk dalam kelas positif. Biasanya, ambang batas 0.5 digunakan untuk menentukan kelas: jika probabilitas lebih besar dari 0.5, data diklasifikasikan sebagai kelas positif, sebaliknya sebagai kelas negatif.
+
+Logistic Regression sangat berguna ketika hubungan antara fitur dan variabel target bersifat linier dan sederhana. Model ini cepat dan mudah diinterpretasikan, tetapi performanya bisa menurun pada dataset yang memiliki pola non-linear atau interaksi kompleks antar-fitur.
+
+- **Contoh Penerapan**: Menilai kelayakan pinjaman, memprediksi kemungkinan penyakit, dan klasifikasi email sebagai spam atau bukan spam.
+- **Kelebihan**: Cepat, efisien, dan mudah diinterpretasi; cocok untuk dataset besar dengan pola linier.
+- **Kekurangan**: Terbatas dalam menangkap pola non-linear dan rentan terhadap multikolinearitas serta outlier.
+
+### 2. Random Forest Classifier
+Random Forest adalah algoritma **ensemble** yang menggabungkan banyak pohon keputusan untuk membuat prediksi yang lebih kuat dan akurat. Algoritma ini bekerja berdasarkan prinsip **bagging (Bootstrap Aggregating)**, yang artinya banyak pohon keputusan independen dilatih pada subset data yang berbeda, dan prediksi akhir diambil berdasarkan suara mayoritas (untuk klasifikasi) atau rata-rata (untuk regresi).
+
+Setiap pohon dalam Random Forest dilatih pada subset data acak yang diambil dari data pelatihan. Selain itu, hanya sebagian fitur yang dipilih pada setiap pembagian di dalam pohon, sehingga pohon-pohon menjadi berbeda dan tidak saling tergantung. Ketika membuat prediksi, setiap pohon memberikan suara, dan kelas yang memiliki suara terbanyak dipilih sebagai prediksi akhir.
+
+Random Forest sangat efektif untuk menangani data yang memiliki fitur numerik maupun kategorikal, serta tahan terhadap overfitting karena tiap pohon hanya mempelajari sebagian dari keseluruhan data. Algoritma ini sangat akurat dan andal, terutama ketika ada banyak fitur yang relevan.
+
+- **Contoh Penerapan**: Deteksi penipuan keuangan, peringkat risiko kredit, dan klasifikasi objek dalam visi komputer.
+- **Kelebihan**: Tahan terhadap overfitting, mampu menangani banyak fitur, bekerja baik dengan variabel numerik dan kategorikal.
+- **Kekurangan**: Memerlukan banyak sumber daya komputasi dan lebih sulit diinterpretasi dibandingkan model sederhana.
+
+### 3. Gradient Boosting Classifier
+Gradient Boosting adalah algoritma **boosting** yang bertujuan untuk meningkatkan akurasi model dengan cara memperbaiki kesalahan model-model sebelumnya. Berbeda dengan Random Forest yang membuat banyak pohon secara bersamaan, Gradient Boosting membangun pohon keputusan satu per satu secara bertahap. Setiap pohon baru ditambahkan untuk mengurangi kesalahan dari pohon sebelumnya, dengan tujuan untuk meminimalkan fungsi loss secara keseluruhan.
+
+Gradient Boosting bekerja dengan menghitung **residual** atau kesalahan prediksi dari model sebelumnya, lalu melatih pohon berikutnya untuk memprediksi residual tersebut. Proses ini terus berlanjut hingga jumlah pohon yang diinginkan tercapai atau error yang dihasilkan telah minimal. Pada akhirnya, setiap pohon memberikan kontribusi dalam proporsi tertentu untuk menghasilkan prediksi akhir, yang merupakan kombinasi dari seluruh pohon yang telah dilatih.
+
+Gradient Boosting sangat efektif untuk menangani dataset yang kompleks dengan pola non-linear. Algoritma ini sering kali menghasilkan akurasi tinggi, tetapi membutuhkan waktu pelatihan yang lebih lama dan rentan terhadap overfitting tanpa pengaturan parameter yang tepat.
+
+- **Contoh Penerapan**: Analisis risiko investasi, peringkat relevansi dalam mesin pencari, dan deteksi penipuan dalam transaksi keuangan.
+- **Kelebihan**: Sangat akurat dalam menangani data non-linear dan cocok untuk dataset kompleks.
+- **Kekurangan**: Membutuhkan lebih banyak waktu dan sumber daya komputasi, serta lebih sulit diinterpretasi karena proses boosting yang kompleks.
+
+Dari ketiga algoritma ini:
+- **Logistic Regression** cocok sebagai model baseline karena kesederhanaannya dan kecepatan dalam menghasilkan prediksi.
+- **Random Forest** memberikan akurasi yang tinggi dengan toleransi terhadap overfitting, menjadikannya pilihan ideal untuk aplikasi dengan data yang kompleks.
+- **Gradient Boosting** memberikan akurasi yang lebih tinggi lagi, tetapi membutuhkan lebih banyak waktu pelatihan, menjadikannya cocok untuk aplikasi yang membutuhkan presisi tinggi.
+
+Pemilihan model terbaik didasarkan pada hasil evaluasi metrik performa yang menunjukkan bahwa **Random Forest** adalah model dengan keseimbangan terbaik antara akurasi dan efisiensi dalam proyek ini.
+
+1. Parameter yang Digunakan:
     - Logistic Regression: Menggunakan parameter default dengan regularisasi L2, untuk menghindari overfitting.
     - Random Forest Classifier: Menggunakan parameter default untuk jumlah pohon (n_estimators=100) serta max_depth yang akan disesuaikan pada tahap hyperparameter tuning.
     - Gradient Boosting Classifier: Menggunakan learning_rate=0.1 dan n_estimators=100 sebagai parameter awal, dan nantinya akan dituning.
-3. Evaluasi Model: Metrik yang akan digunakan meliputi:
+2. Evaluasi Model: Metrik yang akan digunakan meliputi:
     - Accuracy: Persentase prediksi yang benar. AUC (Area Under the Curve): Mengukur kemampuan model dalam memisahkan dua kelas.
     - F1-Score: Memberikan keseimbangan antara precision dan recall.
       
