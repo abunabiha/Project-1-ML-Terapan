@@ -2,13 +2,16 @@
 
 ## Domain Proyek
 
-Nama Proyek : : Prediksi Kelayakan Pemberian Pinjaman
+Nama Proyek : Prediksi Kelayakan Pemberian Pinjaman
+
 Dalam dunia keuangan, kelayakan kredit merupakan aspek krusial bagi lembaga keuangan, seperti bank dan perusahaan pemberi pinjaman, untuk meminimalkan risiko gagal bayar serta mengoptimalkan profitabilitas. Dengan meningkatnya jumlah permintaan pinjaman, perusahaan perlu membuat keputusan cepat dan akurat mengenai kelayakan kredit para pemohon. Data yang berkaitan dengan profil calon peminjam—seperti usia, pendidikan, pendapatan, pengalaman kerja, kepemilikan rumah, tujuan pinjaman, dan riwayat kredit sebelumnya—dapat memberikan wawasan penting dalam memprediksi kemungkinan gagal bayar.
 
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
 
-- Alasan Masalah Perlu Diselesaikan** Memastikan bahwa hanya peminjam yang memenuhi syarat yang disetujui pinjamannya akan membantu perusahaan dalam:
+- Alasan Masalah Perlu Diselesaikan**
+
+  Memastikan bahwa hanya peminjam yang memenuhi syarat yang disetujui pinjamannya akan membantu perusahaan dalam:
     1. Mengurangi Risiko Keuangan: Meminimalkan potensi kerugian yang timbul akibat gagal bayar pinjaman.
 Mengoptimalkan Proses Persetujuan Kredit: Dengan menerapkan model prediksi yang otomatis, perusahaan dapat menghemat waktu dan sumber daya.
     2. Meningkatkan Profitabilitas: Peningkatan akurasi dalam proses seleksi peminjam dapat membantu perusahaan fokus pada peminjam dengan profil yang sesuai, sehingga meningkatkan tingkat pengembalian dan profitabilitas.
