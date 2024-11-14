@@ -55,19 +55,12 @@ Perusahaan pemberi pinjaman menghadapi masalah utama dalam menentukan kelayakan 
     Membangun model klasifikasi yang akurat untuk memprediksi kelayakan pinjaman.
 
 Model ini diharapkan dapat menganalisis berbagai karakteristik peminjam, seperti riwayat keuangan, profil demografis, dan faktor risiko lainnya, guna memprediksi kemungkinan gagal bayar atau keberhasilan dalam memenuhi kewajiban pinjaman. Dengan adanya prediksi yang akurat, perusahaan akan lebih mudah menentukan apakah permohonan kredit layak diterima atau sebaiknya ditolak, sehingga risiko keuangan dapat diminimalkan dan kualitas portofolio kredit terjaga. Lebih jauh, model ini juga memberikan keuntungan dalam hal efisiensi operasional, karena proses persetujuan kredit yang sebelumnya memerlukan waktu panjang kini dapat dilakukan dengan lebih cepat dan sistematis. Selain itu, model prediktif ini dapat membantu perusahaan untuk mengidentifikasi pola risiko dan memperkuat strategi mitigasi risiko di masa mendatang, sehingga menjaga kestabilan arus kas dan meningkatkan profitabilitas secara keseluruhan. Implementasi model ini tidak hanya mendukung pengambilan keputusan yang berbasis data, tetapi juga meningkatkan keadilan dalam pemberian kredit, karena keputusan dibuat berdasarkan analisis obyektif atas data peminjam.
-Menjelaskan tujuan dari pernyataan masalah:
-- Jawaban pernyataan masalah 1
-- Jawaban pernyataan masalah 2
-- Jawaban pernyataan masalah n
-
-Semua poin di atas harus diuraikan dengan jelas. Anda bebas menuliskan berapa pernyataan masalah dan juga goals yang diinginkan.
 
 **Rubrik/Kriteria Tambahan (Opsional)**:
-- Menambahkan bagian “Solution Statement” yang menguraikan cara untuk meraih goals. Bagian ini dibuat dengan ketentuan sebagai berikut: 
-
-    ### Solution statements
-    - Mengajukan 2 atau lebih solution statement. Misalnya, menggunakan dua atau lebih algoritma untuk mencapai solusi yang diinginkan atau melakukan improvement pada baseline model dengan hyperparameter tuning.
-    - Solusi yang diberikan harus dapat terukur dengan metrik evaluasi.
+   ### Solution statements
+Untuk mencapai tujuan tersebut, beberapa solusi berikut diusulkan:
+    - Algoritma Logistic Regression: Model regresi logistik sering digunakan sebagai model dasar karena kesederhanaannya dan interpretabilitasnya. Logistic regression dapat membantu mengidentifikasi pengaruh masing-masing fitur pada probabilitas gagal bayar.
+    - Metode Evaluasi: Akurasi dan area under the ROC curve (AUC) akan menjadi metrik evaluasi utama. Logistic regression akan memberikan baseline yang berguna untuk mengevaluasi solusi lanjutan.
 
 ## Data Understanding
 Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
