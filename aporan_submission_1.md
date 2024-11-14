@@ -63,6 +63,7 @@ Untuk mencapai tujuan tersebut, beberapa solusi berikut diusulkan:
     - Metode Evaluasi: Akurasi dan area under the ROC curve (AUC) akan menjadi metrik evaluasi utama. Logistic regression akan memberikan baseline yang berguna untuk mengevaluasi solusi lanjutan.
 
 ## Data Understanding
+
 Paragraf awal bagian ini menjelaskan informasi mengenai data yang Anda gunakan dalam proyek. Sertakan juga sumber atau tautan untuk mengunduh dataset. Contoh: [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets/Restaurant+%26+consumer+data).
 
 Selanjutnya uraikanlah seluruh variabel atau fitur pada data. Sebagai contoh:  
